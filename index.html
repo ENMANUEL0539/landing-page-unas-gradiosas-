@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uñas Grandiosas</title>
+    
+    <!-- !!! FAVICON: Reemplaza 'favicon.ico' con la ruta a tu icono -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para los iconos de redes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        :root {
+            --primary-color: #E91E63;
+            --secondary-color: #F8BBD0;
+            --dark-color: #333333;
+            --light-color: #f4f4f9;
+            --white-color: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* --- HEADER CON LOGO --- */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white-color);
+            padding: 40px 0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+
+        /* !!! LOGO: Reemplaza el 'src' con la ruta a tu logo. Ajusta el 'max-height' si es necesario. */
+        .logo-container img {
+            max-height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--white-color);
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .header-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header-text p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+        
+        /* --- GRID DE TARJETAS (SERVICIOS Y PRODUCTOS) --- */
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .item-card {
+            background-color: var(--white-color);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .item-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* --- BOTONES --- */
+        .card-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #C2185B;
+        }
+
+        .btn-secondary {
+            background-color: var(--dark-color);
+            color: var(--white-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #555;
+        }
+
+        /* --- SECCIÓN ABOUT ME --- */
+        #about {
+            background-color: var(--white-color);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* --- SECCIÓN UBICACIÓN --- */
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 450px;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- FOOTER CON REDES SOCIALES --- */
+        .main-footer {
+            background-color: var(--dark-color);
+            color: var(--white-color);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--white-color);
+            font-size: 1.8rem;
+            margin: 0 15px;
+            transition: color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .footer-info p {
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            .header-text h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .items-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .about-image {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER CON LOGO ==================== -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- !!! CONTENEDOR DEL LOGO -->
+                <div class="logo-container">
+                    <img src="https://i.ibb.co/6y2f4fP/logo-ejemplo.png" alt="Logo de Uñas Grandiosas">
+                </div>
+                <div class="header-text">
+                    <h1>Uñas Grandiosas</h1>
+                    <p>Tu estilo, nuestra pasión. Realza tu belleza con nosotros.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==================== SECCIÓN DE SERVICIOS ==================== -->
+        <section id="servicios">
+            <div class="container">
+                <h2>Nuestros Servicios de Uñas Acrílicas</h2>
+                <div class="items-grid">
+                    
+                    <!-- ITEM 1 -->
+                    <div class="item-card" data-name="Uñas Acrílicas Clásicas">
+                        <img src="https://images.pexels.com/photos/1099180/pexels-photo-1099180.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Uñas Acrílicas Clásicas">
+                        <div class="card-content">
+                            <h3>Uñas Acrílicas Clásicas</h3>
+                            <p>El diseño clásico y elegante que nunca falla. Perfectas para cualquier ocasión, con una duración excepcional y un acabado impecable.</p>
+                            <div class="price">$450</div>
+                            <div class="card-buttons">
+                                <a href="#" class="btn btn-primary btn-schedule">Agendar Servicio</a>
+                                <a href="#" class="btn btn-secondary btn-contact">Contacto Directo</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 2 -->
+                    <div class="item-card" data-name="Uñas Acrílicas Francesas">
+                        <img src="https://images.pexels.com/photos/3845988/pexels-photo-3845988.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Uñas Acrílicas Francesas">
+                        <div class="card-content">
+                            <h3>Uñas Acrílicas Francesas</h3>
+                            <p>La sofisticación del estilo francés con la durabilidad del acrílico. Tiempo y elegancia en tus manos, ideal para un look profesional y pulcro.</p>
+                            <div class="price">$500</div>
+                            <div class="card-buttons">
+                                <a href="#" class="btn btn-primary btn-schedule">Agendar Servicio</a>
+                                <a href="#" class="btn btn-secondary btn-contact">Contacto Directo</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 3 -->
+                    <div class="item-card" data-name="Uñas Acrílicas con Diseño">
+                        <img src="https://images.pexels.com/photos/3780678/pexels-photo-3780678.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Uñas Acrílicas con Diseño">
+                        <div class="card-content">
+                            <h3>Uñas Acrílicas con Diseño</h3>
+                            <p>Deja volar tu imaginación. Dibujos, piedras, efectos 3D y nail art para un look único y totalmente personalizado que te represente.</p>
+                            <div class="price">Desde $600</div>
+                            <div class="card-buttons">
+                                <a href="#" class="btn btn-primary btn-schedule">Agendar Servicio</a>
+                                <a href="#" class="btn btn-secondary btn-contact">Contacto Directo</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECCIÓN DE PRODUCTOS ==================== -->
+        <section id="productos" style="background-color: #ffffff;">
+            <div class="container">
+                <h2>Joyas y Accesorios</h2>
+                <div class="items-grid">
+
+                    <!-- PRODUCTO 1 -->
+                    <div class="item-card" data-name="Aretes de Plata Ley 925">
+                        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Aretes de Plata">
+                        <div class="card-content">
+                            <h3>Aretes de Plata Ley 925</h3>
+                            <p>Hermosos aretes de plata de alta calidad, ideales para complementar tu look diario o para una noche especial. Hiposalergénicos.</p>
+                            <div class="price">$350</div>
+                            <div class="card-buttons">
+                                <a href="#" class="btn btn-primary btn-schedule">Agendar Servicio</a>
+                                <a href="#" class="btn btn-secondary btn-contact">Contacto Directo</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCTO 2 -->
+                    <div class="item-card" data-name="Collar Minimalista Dorado">
+                        <img src="https://images.pexels.com/photos/3373746/pexels-photo-3373746.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Collar Minimalista">
+                        <div class="card-content">
+                            <h3>Collar Minimalista Dorado</h3>
+                            <p>Un collar delicado y minimalista con baño de oro. Perfecto para usar solo o con otras capas. Un toque de sutileza y elegancia.</p>
+                            <div class="price">$280</div>
+                            <div class="card-buttons">
+                                <a href="#" class="btn btn-primary btn-schedule">Agendar Servicio</a>
+                                <a href="#" class="btn btn-secondary btn-contact">Contacto Directo</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCTO 3 -->
+                    <div class="item-card" data-name="Set de 3 Pulseras Trenzadas">
+                        <img src="https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Set de Pulseras">
+                        <div class="card-content">
+                            <h3>Set de 3 Pulseras Trenzadas</h3>
+                            <p>Conjunto de 3 pulseras trenzadas con detalles dorados. Añade un toque bohemio y chic a tu estilo, cómodas y ligeras.</p>
+                            <div class="price">$220</div>
+                            <div class="card-buttons">
+                                <a href="#" class="btn btn-primary btn-schedule">Agendar Servicio</a>
+                                <a href="#" class="btn btn-secondary btn-contact">Contacto Directo</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECCIÓN ABOUT ME ==================== -->
+        <section id="about">
+            <div class="container">
+                <h2>Conoce a la Artista</h2>
+                <div class="about-grid">
+                    <div class="about-image">
+                        <!-- !!! REEMPLAZA ESTA IMAGEN CON UNA FOTO TUYA O DE TU ESPACIO DE TRABAJO -->
+                        <img src="https://images.pexels.com/photos/3992878/pexels-photo-3992878.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Foto de la artista">
+                    </div>
+                    <div class="about-text">
+                        <h3>¡Hola! Soy [Tu Nombre]</h3>
+                        <p><strong>¿Quién soy?</strong> Soy una apasionada por el arte y la belleza, especializada en la creación de uñas acrílicas que no solo se ven espectaculares, sino que también reflejan la personalidad única de cada clienta. Mi misión es que te sientas segura y deslumbrante con cada detalle.</p>
+                        <p><strong>¿Qué servicios ofrezco?</strong> En "Uñas Grandiosas" te ofrezco un trato personalizado y de alta calidad. Desde los clásicos y elegantes diseños franceses hasta las más audaces y creativas obras de arte en 3D. Además, complemento tu estilo con una cuidada selección de joyas y accesorios. ¡Cada visita es una experiencia de transformación!</p>
+                        <p>Espero verte pronto para que juntos creemos algo grandioso.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECCIÓN UBICACIÓN ==================== -->
+        <section id="ubicacion">
+            <div class="container">
+                <h2>¿Dónde Encontrarnos?</h2>
+                <div class="map-container">
+                    <!-- !!! MAPA: REEMPLAZA EL IFRAME CON EL CÓDIGO DE TU PROPIO MAPA DE GOOGLE MAPS -->
+                    <!-- Para obtenerlo: ve a Google Maps, busca tu dirección, haz clic en "Compartir" -> "Insertar un mapa" -> "Copiar HTML" -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6395.187636590719!2d-71.22402356380802!3d18.80761442323919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eb08842236a7995%3A0xd99acd8d37aa4548!2sCentro%20Comercial%20El%20Detallista!5e0!3m2!1ses-419!2sdo!4v1768819638322!5m2!1ses-419!2sdo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER CON REDES SOCIALES ==================== -->
+    <footer class="main-footer">
+        <div class="container">
+            <!-- !!! REDES SOCIALES: REEMPLAZA LOS '#' CON TUS ENLACES -->
+            <div class="social-links">
+                <a href="https://wa.me/1234567890" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" title="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2024 Uñas Grandiosas. Todos los derechos reservados.</p>
+                <p>Creado con ❤️ para resaltar tu belleza.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== SCRIPT PARA WHATSAPP ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // !!! IMPORTANTE: REEMPLAZA ESTE NÚMERO CON EL DE TU WHATSAPP BUSINESS !!!
+            const whatsappNumber = '1234567890'; 
+
+            const scheduleButtons = document.querySelectorAll('.btn-schedule');
+            const contactButtons = document.querySelectorAll('.btn-contact');
+
+            const scheduleMessage = "Hola! Vi tu página 'Uñas Grandiosas' y me gustaría agendar una cita para el servicio: ";
+            const contactMessage = "Hola! Vi tu página 'Uñas Grandiosas' y estoy interesada en el producto: ";
+
+            function createWhatsappLink(number, message) {
+                return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+            }
+
+            scheduleButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const itemName = this.closest('.item-card').getAttribute('data-name');
+                    const fullMessage = scheduleMessage + itemName;
+                    const whatsappLink = createWhatsappLink(whatsappNumber, fullMessage);
+                    window.open(whatsappLink, '_blank');
+                });
+            });
+
+            contactButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const itemName = this.closest('.item-card').getAttribute('data-name');
+                    const fullMessage = contactMessage + itemName;
+                    const whatsappLink = createWhatsappLink(whatsappNumber, fullMessage);
+                    window.open(whatsappLink, '_blank');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
